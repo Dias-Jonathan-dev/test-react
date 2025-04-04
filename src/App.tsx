@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import "./components/Navbar";
+import { useEffect } from "react";
 
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/Navbar";
@@ -45,9 +46,17 @@ function App() {
     throw new Error("Invalid pokemon name");
   }
 
+  useEffect(() => {
+    alert("Hello Pokemon trainer :)");
+  }, []);
+
   return (
     <div>
-      <NavBar setPokemonName={setPokemonName} pokemonList={pokemonList} />
+      <NavBar
+        setPokemonName={setPokemonName}
+        pokemonList={pokemonList}
+        pokemonName={pokemonName}
+      />
       <PokemonCard pokemon={pokemon} />
     </div>
   );
